@@ -13,7 +13,7 @@ services:
     volumes:
       - ./index.php:/var/www/html/index.php:ro
     environment:
-      - ALLOWED_USER=streaminguser
+      - ALLOWED_PASSPHRASE=topsecret
     networks:
       - shared
 

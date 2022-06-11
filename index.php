@@ -16,14 +16,16 @@ array (
   'call' => 'publish',
   'name' => 'test',
   'type' => 'live',
+  'passphrase' => 'topsecret'
 )
 */
 
-$allowedUser = getenv("ALLOWED_USER");
+$allowedPassphrase = getenv("ALLOWED_PASSPHRASE");
 
-file_put_contents("log.txt", $allowedUser, FILE_APPEND);
+//file_put_contents("log.txt", var_export($_POST, TRUE), FILE_APPEND);
+//file_put_contents("log.txt", $allowedUser, FILE_APPEND);
 
-if(strlen($allowedUser) != 0 && end(explode('=', $_POST["tcurl"])) == $allowedUser) {
+if(strlen($allowedPassphrase) == 0 || $_POST['passphrase'] == $allowedPassphrase) {
   http_response_code(200);
 }
 ?>
